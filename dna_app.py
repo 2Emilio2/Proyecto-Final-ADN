@@ -17,7 +17,7 @@ from PIL import Image
 # Page Title
 ######################
 
-image = Image.open('Nucleotide.jpg')
+image = Image.open('NucleotidosADN.png')
 
 st.image(image, use_column_width=True)
 st.write("""
