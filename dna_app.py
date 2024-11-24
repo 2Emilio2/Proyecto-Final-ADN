@@ -151,8 +151,8 @@ st.markdown(
 ### 4. Display Bar Chart using Altair
 st.subheader('Gráfico de Barras')
 p = alt.Chart(df).mark_bar().encode(
-    x='nucleotido',
-    y='conteo'
+    x='nucleotide',
+    y='count'
 )
 
 p = p.properties(
