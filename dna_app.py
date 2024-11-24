@@ -94,7 +94,7 @@ st.write("""
 """)
 
 ## Prints the input DNA sequence
-st.header('INPUT (DNA Query)')
+st.header('Secuencia de ADN')
 sequence
 
 ## DNA nucleotide count
