@@ -30,7 +30,7 @@ h1 {
 }
 
 h2 {
-    color: #F08080;
+    color: #CD5B45;
     font-size: 25px;
     margin-bottom: 6px;
 }
