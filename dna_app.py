@@ -23,7 +23,7 @@ st.image(image, use_column_width=True)
 st.write("""
 <style>
 h1 {
-    color: #02c74d;
+    color: #D73B3E;
     font-size: 32px;
     text-align: center;
     margin-bottom: 20px;
