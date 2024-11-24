@@ -23,14 +23,14 @@ st.image(image, use_column_width=True)
 st.write("""
 <style>
 h1 {
-    color: #D73B3E;
+    color: #FF7F50;
     font-size: 40px;
     text-align: center;
     margin-bottom: 17px;
 }
 
 h2 {
-    color: #960018;
+    color: #F08080;
     font-size: 25px;
     margin-bottom: 6px;
 }
