@@ -198,7 +198,7 @@ st.altair_chart(animated_pie_chart, use_container_width=True)
 
 p = alt.Chart(df).mark_bar().encode(
     x='nucleotido',
-    y='count',
+    y='conteo',
     column='nucleotido'
 )
 
