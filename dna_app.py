@@ -102,7 +102,7 @@ sequence
 st.header('Composición de nucleótidos')
 
 
-# 1. Print dictionary
+# Conteo de bases
 col1, col2, col3 = st.columns(3)
 with col1:
     st.subheader('Conteo de bases')
@@ -119,7 +119,7 @@ with col1:
     st.write(X)
 
 with col2:
-    # 2. Print text
+    # Texto
     st.subheader('Texto')
     st.write('Hay ' + str(X['A']) + ' adeninas (A) presentes')
     st.write('Hay ' + str(X['T']) + ' timinas (T) presentes')
@@ -127,7 +127,7 @@ with col2:
     st.write('Hay ' + str(X['C']) + ' citosinas (C) presentes')
 
 with col3:
-    # 3. Display DataFrame
+    # Tabla
     st.subheader('Tabla')
     df = pd.DataFrame.from_dict(X, orient='index')
     df = df.rename({0: 'Conteo'}, axis='columns')
@@ -148,11 +148,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-### 4. Display Bar Chart using Altair
+### Gráfica de Barras
 st.subheader('Gráfica de Barras')
 p = alt.Chart(df).mark_bar().encode(
-    x='Nucleótido',
-    y='Conteo'
+    x='nucleotide',
+    y='count'
 )
 
 p = p.properties(
@@ -166,13 +166,13 @@ st.subheader('Grafica Circular')
 import altair as alt
 
 # Reshape the data for animated pie chart
-df_pivot = df.melt('Nucleótido', var_name='funcion', value_name='valor')
+df_pivot = df.melt('nucleotide', var_name='metric', value_name='value')
 
 # Create animated pie chart
 animated_pie_chart = alt.Chart(df_pivot).mark_arc().encode(
     alt.X('value:Q', stack='zero'),
     color='nucleotide:N',
-    tooltip=['Nucleótido', 'funcion', 'valor']
+    tooltip=['nucleotide', 'metric', 'value']
 ).properties(
     width=500,
     height=400
@@ -210,10 +210,11 @@ p = p.properties(
     )
 )
 
-st.header('Contact Information')
-st.markdown('**Name:** Dipraj Howlader')
-st.markdown('- **Email:** dip07.raz@gmail.com')
-st.markdown('- **Phone:** +8801710023365')
+st.header('Alumnos')
+st.markdown('**Arvayo Carrasco Omar Eduardo**')
+st.markdown('- **N°Exp:** ')
+st.markdown('**Mendoza Rascón Emilio**')
+st.markdown('- **N°Exp:** 221209549')
 
 
 # In[ ]:
