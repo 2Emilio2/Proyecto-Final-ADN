@@ -26,14 +26,13 @@ h1 {
     color: #D73B3E;
     font-size: 40px;
     text-align: center;
-    margin-bottom: 20px;
-    set-font: serif
+    margin-bottom: 17px;
 }
 
 h2 {
-    color: #0366d6;
-    font-size: 24px;
-    margin-bottom: 10px;
+    color: #960018;
+    font-size: 25px;
+    margin-bottom: 6px;
 }
 
 .subheader {
