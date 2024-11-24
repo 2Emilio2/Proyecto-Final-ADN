@@ -1,4 +1,4 @@
-    #!/usr/bin/env python
+     #!/usr/bin/env python
 # coding: utf-8
 
 # In[2]:
@@ -197,9 +197,9 @@ animated_pie_chart = animated_pie_chart.properties(
 st.altair_chart(animated_pie_chart, use_container_width=True)
 
 p = alt.Chart(df).mark_bar().encode(
-    x='nucleotide',
-    y='count',
-    column='nucleotide'
+    x='nucleotido',
+    y='conteo',
+    column='nucleotido'
 )
 
 p = p.properties(
