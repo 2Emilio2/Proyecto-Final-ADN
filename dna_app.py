@@ -24,9 +24,10 @@ st.write("""
 <style>
 h1 {
     color: #D73B3E;
-    font-size: 32px;
+    font-size: 40px;
     text-align: center;
     margin-bottom: 20px;
+    set-font: serif
 }
 
 h2 {
