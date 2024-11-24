@@ -24,25 +24,25 @@ st.write("""
 <style>
 h1 {
     color: #FF7F50;
-    font-size: 40px;
+    font-size: 42px;
     text-align: center;
     margin-bottom: 17px;
 }
 
 h2 {
     color: #CD5B45;
-    font-size: 30px;
+    font-size: 27px;
     margin-bottom: 6px;
 }
 
 .subheader {
-    color: #02b3c7;
-    font-size: 18px;
+    color: #FE6F5E;
+    font-size: 20px;
     margin-bottom: 5px;
 }
 
 .output {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 table.dataframe {
@@ -53,23 +53,24 @@ table.dataframe {
 table.dataframe th, table.dataframe td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: left;
+    text-align: center;
 }
 
 table.dataframe th {
-    background-color: #f5f5f5;
+    background-color: #5C5343;
 }
 
 .chart {
-    margin-top: 20px;
+    margin-top: 14px;
 }
 </style>
 """, unsafe_allow_html=True)
 
 st.write("""
-# DNA Nucleotide Count Web App
-This app is a quick and easy way to get a breakdown of your DNA's nucleotide composition.
-The results of this app can be used for a variety of purposes, such as research or personal health.
+# Cuenta de Nucléotidos en ADN
+Con esta aplicación se pueden obtener datos detalladamente de la composición de nucleotidos de la cadena de ADN que desees conocer.
+Simplemente con escribir una pequeña secuencia de la cadena que gustes podrás conseguir datos para tus investigaciones, proyectos,
+experimentos o conocimiento propio.
 ***
 """)
 
@@ -79,12 +80,13 @@ The results of this app can be used for a variety of purposes, such as research 
 ######################
 
 #st.sidebar.header('Enter DNA sequence')
-st.header('Enter DNA sequence')
+st.header('Introduzca Secuencia de ADN')
 
-sequence_input = ">DNA Query 2\nGAACACGTGGAGGCAAACAGGAAGGTGAAGAAGAACTTATCCTATCAGGACGGAAGGTCCTGTGCTCGGG\nATCTTCCAGACGTCGCGACTCTAAATTGCCCCCTCTGAGGTCAAGGAACACAAGATGGTTTTGGAAATGC\nTGAACCCGATACATTATAACATCACCAGCATCGTGCCTGAAGCCATGCCTGCTGCCACCATGCCAGTCCT"
+sequence_input = "Ejemplo:"
+"GAACACGTGGAGGCAAACAGGAAGGTGAAGAAGAACTTATCCTATCAGGACGGAAGGTCCTGTGCTCGGGATCTTCCAGACGTCGCGACTCTAAATTGCCCCCTCTGAGGTCAAGGAACACAAGATGGTTTTGGAAATGCTGAACCCGATACATTATAACATCACCAGCATCGTGCCTGAAGCCATGCCTGCTGCCACCATGCCAGTCCT"
 
 #sequence = st.sidebar.text_area("Sequence input", sequence_input, height=250)
-sequence = st.text_area("Sequence input", sequence_input, height=250)
+sequence = st.text_area("Secuencia", sequence_input, height=250)
 sequence = sequence.splitlines()
 sequence = sequence[1:] # Skips the sequence name (first line)
 sequence = ''.join(sequence) # Concatenates list to string
@@ -94,17 +96,17 @@ st.write("""
 """)
 
 ## Prints the input DNA sequence
-st.header('INPUT (DNA Query)')
+st.header('Secuencia Introducida')
 sequence
 
 ## DNA nucleotide count
-st.header('OUTPUT (DNA nucleotide composition)')
+st.header('Composición de nucleótidos')
 
 
 # 1. Print dictionary
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.subheader('1. Print dictionary')
+    st.subheader('Conteo de bases')
     def DNA_nucleotide_count(seq):
         d = dict([
             ('A', seq.count('A')),
@@ -119,19 +121,19 @@ with col1:
 
 with col2:
     # 2. Print text
-    st.subheader('2. Print text')
-    st.write('There are ' + str(X['A']) + ' adenine (A)')
-    st.write('There are ' + str(X['T']) + ' thymine (T)')
-    st.write('There are ' + str(X['G']) + ' guanine (G)')
-    st.write('There are ' + str(X['C']) + ' cytosine (C)')
+    st.subheader('Texto')
+    st.write('Hay ' + str(X['A']) + ' adeninas (A) presentes')
+    st.write('Hay ' + str(X['T']) + ' timinas (T) presentes')
+    st.write('Hay ' + str(X['G']) + ' guaninas (G) presentes')
+    st.write('Hay ' + str(X['C']) + ' citosinas (C) presentes')
 
 with col3:
     # 3. Display DataFrame
-    st.subheader('3. Display DataFrame')
+    st.subheader('Tabla')
     df = pd.DataFrame.from_dict(X, orient='index')
-    df = df.rename({0: 'count'}, axis='columns')
+    df = df.rename({0: 'Conteo'}, axis='columns')
     df.reset_index(inplace=True)
-    df = df.rename(columns={'index': 'nucleotide'})
+    df = df.rename(columns={'index': 'Nucleotido'})
     st.write(df)
 
 # Add CSS styling for subheaders
@@ -148,10 +150,10 @@ st.markdown(
 )
 
 ### 4. Display Bar Chart using Altair
-st.subheader('4. Display Bar chart')
+st.subheader('Gráfica de Barras')
 p = alt.Chart(df).mark_bar().encode(
-    x='nucleotide',
-    y='count'
+    x='Nucleótido',
+    y='Conteo'
 )
 
 p = p.properties(
@@ -160,18 +162,18 @@ p = p.properties(
 st.write(p)
 
 ### 5. Display Pie Chart using Altair
-st.subheader('5. Display Pie Chart')
+st.subheader('Grafica Circular')
 
 import altair as alt
 
 # Reshape the data for animated pie chart
-df_pivot = df.melt('nucleotide', var_name='metric', value_name='value')
+df_pivot = df.melt('Nucleótido', var_name='funcion', value_name='valor')
 
 # Create animated pie chart
 animated_pie_chart = alt.Chart(df_pivot).mark_arc().encode(
     alt.X('value:Q', stack='zero'),
     color='nucleotide:N',
-    tooltip=['nucleotide', 'metric', 'value']
+    tooltip=['Nucleótido', 'funcion', 'valor']
 ).properties(
     width=500,
     height=400
