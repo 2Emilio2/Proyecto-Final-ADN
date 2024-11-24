@@ -85,7 +85,7 @@ st.header('Introduzca Secuencia de ADN')
 sequence_input = "Ejemplo: GAACACGTGGAGGCAAACAGGAAGGTGAAGAAGAACTTATCCTATCAGGACGGAAGGTCCTGTGCTCGGGATCTTCCAGACGTCGCGACTCTAAATTGCCCCCTCTGAGGTCAAGGAACACAAGATGGTTTTGGAAATGCTGAACCCGATACATTATAACATCACCAGCATCGTGCCTGAAGCCATGCCTGCTGCCACCATGCCAGTCCT"
 
 #sequence = st.sidebar.text_area("Sequence input", sequence_input, height=250)
-sequence = st.text_area("Secuencia", sequence_input, height=250)
+sequence = st.text_area("Secuencia", sequence_input, height=200)
 sequence = sequence.splitlines()
 sequence = sequence[1:] # Skips the sequence name (first line)
 sequence = ''.join(sequence) # Concatenates list to string
@@ -96,7 +96,7 @@ st.write("""
 
 ## Prints the input DNA sequence
 st.header('Secuencia Introducida')
-sequence
+print(sequence)
 
 ## DNA nucleotide count
 st.header('Composición de nucleótidos')
