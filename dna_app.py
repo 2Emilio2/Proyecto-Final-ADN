@@ -96,7 +96,7 @@ st.write("""
 
 ## Prints the input DNA sequence
 st.header('Secuencia Introducida')
-print(sequence_input)
+sequence
 
 ## DNA nucleotide count
 st.header('Composición de nucleótidos')
