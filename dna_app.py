@@ -130,9 +130,9 @@ with col3:
     # Tabla
     st.subheader('Tabla')
     df = pd.DataFrame.from_dict(X, orient='index')
-    df = df.rename({0: 'Conteo'}, axis='columns')
+    df = df.rename({0: 'count'}, axis='columns')
     df.reset_index(inplace=True)
-    df = df.rename(columns={'index': 'Nucleotido'})
+    df = df.rename(columns={'index': 'nucleotine'})
     st.write(df)
 
 # Add CSS styling for subheaders
@@ -151,8 +151,8 @@ st.markdown(
 ### Gráfica de Barras
 st.subheader('Gráfica de Barras')
 p = alt.Chart(df).mark_bar().encode(
-    x='nucleotide',
-    y='count'
+    x='Nucleotido',
+    y='Conteo'
 )
 
 p = p.properties(
