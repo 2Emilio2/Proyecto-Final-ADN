@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+    #!/usr/bin/env python
 # coding: utf-8
 
 # In[2]:
@@ -130,9 +130,9 @@ with col3:
     # Tabla
     st.subheader('Tabla')
     df = pd.DataFrame.from_dict(X, orient='index')
-    df = df.rename({0: 'count'}, axis='columns')
+    df = df.rename({0: 'conteo'}, axis='columns')
     df.reset_index(inplace=True)
-    df = df.rename(columns={'index': 'nucleotine'})
+    df = df.rename(columns={'index': 'nucleotido'})
     st.write(df)
 
 # Add CSS styling for subheaders
@@ -148,8 +148,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-### Gráfica de Barras
-st.subheader('Gráfica de Barras')
+### 4. Display Bar Chart using Altair
+st.subheader('4. Display Bar Chart')
 p = alt.Chart(df).mark_bar().encode(
     x='nucleotide',
     y='count'
@@ -161,7 +161,7 @@ p = p.properties(
 st.write(p)
 
 ### 5. Display Pie Chart using Altair
-st.subheader('Grafica Circular')
+st.subheader('5. Display Pie Chart')
 
 import altair as alt
 
