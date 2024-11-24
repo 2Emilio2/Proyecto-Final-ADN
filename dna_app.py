@@ -172,7 +172,7 @@ df_pivot = df.melt('nucleotide', var_name='metric', value_name='value')
 animated_pie_chart = alt.Chart(df_pivot).mark_arc().encode(
     alt.X('value:Q', stack='zero'),
     color='nucleotide:N',
-    tooltip=['nucleotido', 'funcion', 'valor']
+    tooltip=['nucleotide', 'metric', 'value']
 ).properties(
     width=500,
     height=400
