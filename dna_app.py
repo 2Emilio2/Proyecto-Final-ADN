@@ -172,13 +172,13 @@ df_pivot = df.melt('nucleotido', var_name='metric', value_name='value')
 animated_pie_chart = alt.Chart(df_pivot).mark_arc().encode(
     alt.X('value:Q', stack='zero'),
     color='nucleotide:N',
-    tooltip=['nucleotide', 'metric', 'value']
+    tooltip=['nucleotido', 'metric', 'value']
 ).properties(
     width=500,
     height=400
 ).transform_joinaggregate(
     total='sum(value)',
-    groupby=['nucleotide']
+    groupby=['nucleotido']
 ).transform_calculate(
     percentage='datum.value / datum.total'
 ).encode(
@@ -197,9 +197,9 @@ animated_pie_chart = animated_pie_chart.properties(
 st.altair_chart(animated_pie_chart, use_container_width=True)
 
 p = alt.Chart(df).mark_bar().encode(
-    x='nucleotide',
+    x='nucleotido',
     y='count',
-    column='nucleotide'
+    column='nucleotido'
 )
 
 p = p.properties(
