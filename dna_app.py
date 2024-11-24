@@ -177,7 +177,7 @@ animated_pie_chart = alt.Chart(df_pivot).mark_arc().encode(
     width=500,
     height=400
 ).transform_joinaggregate(
-    total='sum(value)',
+    total='sum(valor)',
     groupby=['nucleotido']
 ).transform_calculate(
     percentage='datum.value / datum.total'
