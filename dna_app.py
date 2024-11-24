@@ -82,8 +82,7 @@ experimentos o conocimiento propio.
 #st.sidebar.header('Enter DNA sequence')
 st.header('Introduzca Secuencia de ADN')
 
-sequence_input = "CCCTCACACCCGCCCCCCCCTCCACCCCTCACACCCGCCCCCCCTCCACCCCTCACACCCGCCCCTCCTCCACCCCTCACACCCGCCCCCCCTCCACCCCTCACACCCGCCCCCCCTCCACCCCTCACACCCGCCCCTCC"
-
+sequence_input =
 #sequence = st.sidebar.text_area("Sequence input", sequence_input, height=250)
 sequence = st.text_area("Secuencia", sequence_input, height=150)
 sequence = sequence.splitlines()
