@@ -222,7 +222,7 @@ st.header('Alumnos')
 st.markdown('**Arvayo Carrasco Omar Eduardo**')
 st.markdown('- **N°Exp:** 223219957')
 st.markdown('**Mendoza Rascón Emilio**')
-st.markdown('- **N°Exp:** 221209549')
+st.markdown('- **N°Exp:** ')
 
 
 # In[ ]:
