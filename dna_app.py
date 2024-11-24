@@ -166,18 +166,18 @@ st.subheader('Gráfica Circular')
 import altair as alt
 
 # Reshape the data for animated pie chart
-df_pivot = df.melt('nucleotido', var_name='metric', value_name='valor')
+df_pivot = df.melt('nucleotido', var_name='metric', value_name='value')
 
 # Create animated pie chart
 animated_pie_chart = alt.Chart(df_pivot).mark_arc().encode(
     alt.X('value:Q', stack='zero'),
     color='nucleotide:N',
-    tooltip=['nucleotido', 'metric', 'valor']
+    tooltip=['nucleotido', 'metric', 'value']
 ).properties(
     width=500,
     height=400
 ).transform_joinaggregate(
-    total='sum(valor)',
+    total='sum(value)',
     groupby=['nucleotido']
 ).transform_calculate(
     percentage='datum.value / datum.total'
