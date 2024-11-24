@@ -130,9 +130,9 @@ with col3:
     # Tabla
     st.subheader('Tabla')
     df = pd.DataFrame.from_dict(X, orient='index')
-    df = df.rename({0: 'count'}, axis='columns')
+    df = df.rename({0: 'conteo'}, axis='columns')
     df.reset_index(inplace=True)
-    df = df.rename(columns={'index': 'nucleotide'})
+    df = df.rename(columns={'index': 'nucleotido'})
     st.write(df)
 
 # Add CSS styling for subheaders
@@ -151,8 +151,8 @@ st.markdown(
 ### 4. Display Bar Chart using Altair
 st.subheader('Gráfico de Barras')
 p = alt.Chart(df).mark_bar().encode(
-    x='nucleotide',
-    y='count'
+    x='nucleotido',
+    y='conteo'
 )
 
 p = p.properties(
