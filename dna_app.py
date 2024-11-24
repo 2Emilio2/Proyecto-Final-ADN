@@ -23,15 +23,15 @@ st.image(image, use_column_width=True)
 st.write("""
 <style>
 h1 {
-    color: #CD5B45;
+    color: #FF7F50;
     font-size: 40px;
     text-align: center;
     margin-bottom: 17px;
 }
 
 h2 {
-    color: #FF7F50;
-    font-size: 25px;
+    color: #CD5B45;
+    font-size: 30px;
     margin-bottom: 6px;
 }
 
