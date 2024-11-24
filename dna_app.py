@@ -161,7 +161,7 @@ p = p.properties(
 st.write(p)
 
 ### 5. Display Pie Chart using Altair
-st.subheader('Gráfico Circular')
+st.subheader('Gráfica Circular')
 
 import altair as alt
 
@@ -201,6 +201,15 @@ p = alt.Chart(df).mark_bar().encode(
     y='count',
     column='nucleotide'
 )
+
+p = p.properties(
+    width=alt.Step(80),  # controls width of bar
+    height=alt.Step(40),  # controls height of bar
+    column=alt.Column(
+        spacing=10  # controls spacing between grouped bars
+    )
+)
+
 
 p = p.properties(
     width=alt.Step(80),  # controls width of bar
