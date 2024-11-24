@@ -151,8 +151,8 @@ st.markdown(
 ### Gráfica de Barras
 st.subheader('Gráfica de Barras')
 p = alt.Chart(df).mark_bar().encode(
-    x='Nucleotido',
-    y='Conteo'
+    x='nucleotide',
+    y='count'
 )
 
 p = p.properties(
